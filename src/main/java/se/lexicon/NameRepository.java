@@ -16,23 +16,7 @@ public class NameRepository {
      * @return The number of elements in the names array.
      */
     public static int getSize() {
-        public static int getSize() {
-            return names.length;
-        }
-
-        public static void setNames(final String[] names) {
-            // replace all existing names (defensive copy)
-            NameRepository.names = (names == null) ? new String[0] : Arrays.copyOf(names, names.length);
-        }
-
-        public static void clear() {
-            names = new String[0];
-        }
-
-        public static String[] findAll() {
-            return Arrays.copyOf(names, names.length);
-        }
-
+        return names.length;
         return 0;
     }
 
@@ -43,7 +27,7 @@ public class NameRepository {
      * @param names The array of names to set.
      */
     public static void setNames(final String[] names) {
-        //todo: PART 1: implement setNames method
+        NameRepository.names = (names == null) ? new String[0] : Arrays.copyOf(names, names.length);
     }
 
 
@@ -51,7 +35,7 @@ public class NameRepository {
      * Clears the names array by creating a new empty array.
      */
     public static void clear() {
-        //todo: PART 1: implement clear method
+        names = new String[0];
     }
 
 
@@ -61,7 +45,7 @@ public class NameRepository {
      * @return A new array containing all elements from the names array.
      */
     public static String[] findAll() {
-        //todo: PART 1: implement findAll method
+        return Arrays.copyOf(names, names.length);
         return null;
     }
 
