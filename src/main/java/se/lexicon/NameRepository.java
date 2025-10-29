@@ -57,7 +57,10 @@ public class NameRepository {
      * @return The matching name if found; otherwise, null.
      */
     public static String find(final String fullName) {
-        //todo: PART 2: implement find method
+        if (fullName == null) return null;
+        for (String n : names) {
+            if (n.equalsIgnoreCase(fullName)) return n;
+        }
         return null;
     }
 
@@ -69,7 +72,13 @@ public class NameRepository {
      * @return True if the fullName is added successfully; false if it already exists.
      */
     public static boolean add(final String fullName) {
-        //todo: PART 2: implement add method
+        if (fullName == null || fullName.isEmpty()) return false;
+        if (find(fullName) != null) return false;
+
+        String[] expanded = Arrays.copyOf(names, names.length + 1);
+        expanded[expanded.length - 1] = fullName;
+        names = expanded;
+        return true;
         return false;
     }
 
