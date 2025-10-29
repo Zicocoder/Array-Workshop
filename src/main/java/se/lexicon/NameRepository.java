@@ -1,4 +1,5 @@
 package se.lexicon;
+import java.util.Arrays;
 
 /**
  * The NameRepository class provides methods to manage a list of names.
@@ -15,7 +16,23 @@ public class NameRepository {
      * @return The number of elements in the names array.
      */
     public static int getSize() {
-        //todo: PART 1: implement getSize method
+        public static int getSize() {
+            return names.length;
+        }
+
+        public static void setNames(final String[] names) {
+            // replace all existing names (defensive copy)
+            NameRepository.names = (names == null) ? new String[0] : Arrays.copyOf(names, names.length);
+        }
+
+        public static void clear() {
+            names = new String[0];
+        }
+
+        public static String[] findAll() {
+            return Arrays.copyOf(names, names.length);
+        }
+
         return 0;
     }
 
